@@ -1,0 +1,122 @@
+%{
+#include "defs.h"
+#define YYSTYPE Cell *
+%}
+%token  STROKE FILL DISPLAY PERIOD
+        RECTANGLE LINE ARC STRING IMAGE
+        START END PASS ANGLE SWEEP AT
+        COLOR WIDTH INTEGER ATMARK WQUOTED
+        RED GREEN BLUE CYAN MAGENTA YELLOW GRAY BLACK WHITE
+        UNKNOWN;
+%%
+Program
+        : Statements
+                { $$ = $1; }
+Statements
+        : Statement
+                { $$ = $1; tree($$); }
+        | Statements Statement
+                { $$ = $2; tree($$); }
+Statement
+        : PERIOD
+                { $$ = $1; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%
+#include "lex.yy.c"
+void yyerror(char *s) {
+	fprintf(stderr, "\n%s at %d: nearby \"%s\"\n\n", s, linecounter, yytext);
+	exit(EXIT_FAILURE);
+}
