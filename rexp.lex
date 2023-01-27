@@ -4,6 +4,7 @@ int linecounter = 1;
 %option nounput
 %%
 display                                     { return(DISPLAY); }
+string                                      { return(STRING); }
 image                                       { return(IMAGE); }
 at                                          { return(AT); }
 [0-9]+                                      { return(INTEGER); }

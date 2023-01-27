@@ -1,6 +1,10 @@
 /*** Tiny Language ***/
 
-display image
+display string
+	at 430 @ 390
+	"ASAOKA".
+
+/*display image
 	at 550 @ 50
 	"http://www.cc.kyoto-su.ac.jp/~atsushi/misc/jpgs/BlackBookFrontPage335x432.jpg".
-	/* "http://aokilab.kyoto-su.ac.jp/documents/BlackBook/images/BlackBookFrontPage335x432.jpg". */
+*/

@@ -18,8 +18,13 @@ Statements
         | Statements Statement
                 { $$ = $2; }
 Statement
-        : DISPLAY IMAGE ImageAttributes PERIOD
+        : DISPLAY STRING StringAttributes PERIOD
                 { $$ = node("DISPLAY", $3); }
+        | DISPLAY IMAGE ImageAttributes PERIOD
+                { $$ = node("DISPLAY", $3); }
+StringAttributes
+        : AtPoint Wquoted
+                { $$ = node("STRING", cons($1, $2)); }
 ImageAttributes
         : AtPoint Wquoted
                 { $$ = node("IMAGE", cons($1, $2)); }
