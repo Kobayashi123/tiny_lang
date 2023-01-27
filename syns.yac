@@ -16,7 +16,7 @@ Statements
         : Statement
                 { $$ = $1; }
         | Statements Statement
-                { $$ = $2; }
+                { $$ = node("Statements", cons($1, $2)); }
 Statement
         : DISPLAY STRING StringAttributes PERIOD
                 { $$ = node("DISPLAY", $3); }
