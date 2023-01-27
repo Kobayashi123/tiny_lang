@@ -11,109 +11,35 @@
 %%
 Program
         : Statements
-                { $$ = $1; }
+                { $$ = $1; tree($$); }
 Statements
         : Statement
-                { $$ = $1; tree($$); }
-        | Statements Statement
-                { $$ = $2; tree($$); }
-Statement
-        : PERIOD
                 { $$ = $1; }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        | Statements Statement
+                { $$ = node("Statements", cons($1, $2)); }
+Statement
+        : DISPLAY STRING StringAttributes PERIOD
+                { $$ = node("DISPLAY", $3); }
+        | DISPLAY IMAGE ImageAttributes PERIOD
+                { $$ = node("DISPLAY", $3); }
+StringAttributes
+        : AtPoint Wquoted
+                { $$ = node("STRING", cons($1, $2)); }
+ImageAttributes
+        : AtPoint Wquoted
+                { $$ = node("IMAGE", cons($1, $2)); }
+AtPoint
+        : AT Coordinate
+                { $$ = node("AT", $2); }
+Coordinate
+        : Integer ATMARK Integer
+                { $$ = node("XY", cons($1, $3)); }
+Wquoted
+        : WQUOTED
+                { $$ = leaf("WQUOTED", yytext); }
+Integer
+        : INTEGER
+                { $$ = leaf("INTEGER", yytext); }
 %%
 #include "lex.yy.c"
 void yyerror(char *s) {

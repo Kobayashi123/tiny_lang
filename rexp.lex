@@ -3,41 +3,20 @@ int linecounter = 1;
 %}
 %option nounput
 %%
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+display                                     { return(DISPLAY); }
+string                                      { return(STRING); }
+image                                       { return(IMAGE); }
+at                                          { return(AT); }
+[0-9]+                                      { return(INTEGER); }
+"."                                         { return(PERIOD); }
+"@"                                         { return(ATMARK);}
+"\""([A-Za-z0-9]|":"|"/"|"."|"-"|"~")*"\""  { return(WQUOTED); }
+"\n"                                        { linecounter++; }
+"\r\n"                                      { linecounter++; }
+"\r"                                        { linecounter++; }
+" "|"\t"                                    { }
+"/*"                                        { comment(); }
+.                                           { return(UNKNOWN); }
 %%
 int yywrap(void) {
 	return(1);
