@@ -9,9 +9,6 @@
         RED GREEN BLUE CYAN MAGENTA YELLOW GRAY BLACK WHITE
         UNKNOWN;
 %%
-Program
-        : Statements
-                { $$ = $1; }
 Statements
         : Statement
                 { $$ = $1; tree($$);}
