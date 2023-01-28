@@ -19,15 +19,40 @@ Statement
                 { $$ = node("DISPLAY", $3); }
         | DISPLAY IMAGE ImageAttributes PERIOD
                 { $$ = node("DISPLAY", $3); }
+        | FILL RECTANGLE RectangleAttributes PERIOD
+                { $$ = node("FILL", node("RECTANGLE",$3));}
 StringAttributes
         : AtPoint Wquoted
                 { $$ = node("STRING", cons($1, $2)); }
 ImageAttributes
         : AtPoint Wquoted
                 { $$ = node("IMAGE", cons($1, $2)); }
+RectangleAttributes
+        : START Point END Point ColorAndWidth
+                { $$ = cons(cons(node("START",$2),node("END",$4)),$5); }
+        | START Point WayPoint END Point ColorAndWidth
+                { $$ = cons(cons(node("START",$2),node("END",$4)),$5); }//TODO
+WayPoint
+        :PASS Point
+        |Point PASS WayPoint
+Point
+        :Integer ATMARK Integer
+                {$$ = node("XY", cons($1,$3)); }
 AtPoint
         : AT Coordinate
                 { $$ = node("AT", $2); }
+ColorAndWidth
+	: COLOR Colors
+        	{ $$ = node("COW", $2); }
+	| COLOR Colors WIDTH Integer
+                { $$ = node("COW",cons($2,$4)); }
+	| WIDTH Integer
+        	{ $$ = node("COW", $2); }
+	| WIDTH Integer COLOR Colors
+                { $$ = node("COW",cons($2,$4)); }
+Colors
+        :GREEN
+                { $$ = leaf("COLOR", yytext); }
 Coordinate
         : Integer ATMARK Integer
                 { $$ = node("XY", cons($1, $3)); }
