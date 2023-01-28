@@ -11,12 +11,12 @@
 %%
 Program
         : Statements
-                { $$ = $1; tree($$); }
+                { $$ = $1; }
 Statements
         : Statement
-                { $$ = $1; }
+                { $$ = $1; tree($$);}
         | Statements Statement
-                { $$ = node("Statements", cons($1, $2)); }
+                { $$ = $2; tree($$);}
 Statement
         : DISPLAY STRING StringAttributes PERIOD
                 { $$ = node("DISPLAY", $3); }
