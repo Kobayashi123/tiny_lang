@@ -53,6 +53,23 @@ ColorAndWidth
 Colors
         :GREEN
                 { $$ = leaf("COLOR", yytext); }
+        |RED
+                { $$ = leaf("COLOR", yytext); }
+        |BLUE
+                { $$ = leaf("COLOR", yytext); }
+        |CYAN
+                { $$ = leaf("COLOR", yytext); }
+        |MAGENTA
+                { $$ = leaf("COLOR", yytext); }
+        |YELLOW
+                { $$ = leaf("COLOR", yytext); }
+        |GRAY
+                { $$ = leaf("COLOR", yytext); }
+        |BLACK
+                { $$ = leaf("COLOR", yytext); }
+        |WHITE
+                { $$ = leaf("COLOR", yytext); }
+
 Coordinate
         : Integer ATMARK Integer
                 { $$ = node("XY", cons($1, $3)); }
