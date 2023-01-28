@@ -30,8 +30,6 @@ ImageAttributes
 RectangleAttributes
         : START Point END Point ColorAndWidth
                 { $$ = cons(cons(node("START",$2),node("END",$4)),$5); }
-        | START Point WayPoint END Point ColorAndWidth
-                { $$ = cons(cons(node("START",$2),node("END",$4)),$5); }//TODO
 WayPoint
         :PASS Point
         |Point PASS WayPoint
