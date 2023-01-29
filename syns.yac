@@ -27,6 +27,10 @@ Statement
                 { $$ = node("FILL",node("LINE",$3));} 
         | STROKE LINE LineAttributes PERIOD
                 { $$ = node("STROKE",node("LINE",$3));} 
+        | FILL ARC ArcAttributes PERIOD
+                { $$ = node("FILL",node("ARC",$3));} 
+        | STROKE ARC ArcAttributes PERIOD
+                { $$ = node("STROKE",node("ARC",$3));} 
 
 StringAttributes
         : AtPoint Wquoted
@@ -42,7 +46,23 @@ LineAttributes
                 { $$ = cons(cons(node("START",$2),node("END",$4)),$5); }
         | START Point WayPoint END Point ColorAndWidth
                 { $$ = cons(cons(node("START",$2),cons($3,node("END",$5))),$6); }
-                
+
+ArcAttributes
+        :START Point END Point ANGLE Integer SWEEP Integer ColorAndWidth
+                {$$ = cons(
+                        cons(
+                                cons(
+                                        node("START",$2),
+                                        node("END",$4)
+                                ),
+                                cons(
+                                        node("ANGLE",$6),
+                                        node("SWEEP",$8)
+                                )
+                        ),
+                        $9);
+                }
+
 WayPoint
         :PASS Point
                 { $$ = node("PASS",$2);}

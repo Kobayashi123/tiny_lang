@@ -8,6 +8,9 @@ string                                      { return(STRING); }
 image                                       { return(IMAGE); }
 line										{return(LINE); }
 rectangle									{ return(RECTANGLE);}
+arc											{ return(ARC);}
+angle										{ return(ANGLE);}
+sweep										{ return(SWEEP);}
 fill										{ return(FILL);}
 stroke										{ return(STROKE);}
 start										{ return(START);}
