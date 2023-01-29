@@ -7,3 +7,14 @@ display string
 display image
 	at 550 @ 50
 	"http://www.cc.kyoto-su.ac.jp/~atsushi/misc/jpgs/BlackBookFrontPage335x432.jpg".
+
+fill rectangle
+	start 250 @ 100
+	end 350 @ 150
+	color green.
+
+stroke rectangle
+	start 400 @ 100
+	end 500 @ 150
+	color blue
+	width 5.

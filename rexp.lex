@@ -9,6 +9,7 @@ image                                       { return(IMAGE); }
 
 rectangle									{ return(RECTANGLE);}
 fill										{ return(FILL);}
+stroke										{ return(STROKE);}
 start										{ return(START);}
 pass										{ return(PASS);}
 end											{ return(END);}

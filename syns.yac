@@ -21,6 +21,9 @@ Statement
                 { $$ = node("DISPLAY", $3); }
         | FILL RECTANGLE RectangleAttributes PERIOD
                 { $$ = node("FILL", node("RECTANGLE",$3));}
+        | STROKE RECTANGLE RectangleAttributes PERIOD
+                { $$ = node("STROKE", node("RECTANGLE",$3));}
+
 StringAttributes
         : AtPoint Wquoted
                 { $$ = node("STRING", cons($1, $2)); }
