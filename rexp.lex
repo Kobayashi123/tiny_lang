@@ -6,7 +6,7 @@ int linecounter = 1;
 display                                     { return(DISPLAY); }
 string                                      { return(STRING); }
 image                                       { return(IMAGE); }
-
+line										{return(LINE); }
 rectangle									{ return(RECTANGLE);}
 fill										{ return(FILL);}
 stroke										{ return(STROKE);}
