@@ -35,7 +35,7 @@ $ make test
 
 ## Licence
 
-[MIT](https://github.com/Kobayashi123/tiny_lang/blob/main/LICENCE)
+[Apache License, Version 2.0](https://github.com/Kobayashi123/tiny_lang/blob/main/LICENCE)
 
 ## Author
 
