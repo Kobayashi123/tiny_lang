@@ -1,5 +1,50 @@
 # tiny_lang
 
-## プログラミング言語の長期的な課題【言語処理系の開発】
-独自の言語処理系を作成する課題。自ら新たな言語を設計し、その処理系を自作する。必ず、lex(flex)とyacc(bison)を用いることが条件。
+## Description
 
+Design a new language by ourself and create its language processor by yourself using lex(flex) and yacc(bison).
+
+## Requirement
+
+macOS 12.6.2
+
+## Usage
+
+1. Clone this repository
+
+```
+$ git clone https://github.com/Kobayashi123/tiny_lang.git
+```
+
+2. Change the working directory
+```
+$ cd tiny_lang
+```
+
+3. Run the program
+
+The following command parses src.txt and creates a parse tree named tmp.txt.
+```
+$ make src
+```
+
+After that, download and run tiny_VM by the following command. tiny_VM window opens, select tmp.txt to process src.txt written in tiny_lang and draw in the window.
+```
+$ make test
+```
+
+## Licence
+
+[MIT](https://github.com/Kobayashi123/tiny_lang/blob/main/LICENCE)
+
+## Author
+
+[Kobayashi123](https://github.com/Kobayashi123)
+
+[otty0507](https://github.com/otty0507)
+
+[shuheykoyaba](https://github.com/shuheykoyama)
+
+[KitaokaTsubasa](https://github.com/KitaokaTsubasa)
+
+[TeruyaGoda](https://github.com/Gteruya)
