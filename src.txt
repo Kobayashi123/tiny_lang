@@ -1,5 +1,55 @@
 /*** Tiny Language ***/
 
+stroke rectangle
+	start 100 @ 100
+	end 200 @ 150
+	width 3
+	color red.
+fill rectangle
+	start 250 @ 100
+	end 350 @ 150
+	color green.
+stroke rectangle
+	start 400 @ 100
+	end 500 @ 150
+	color blue
+	width 5.
+
+stroke line
+	start 100 @ 200
+	pass 140 @ 300
+	pass 160 @ 200
+	end 200 @ 300
+	width 2
+	color cyan.
+fill line
+	start 250 @ 200
+	pass 290 @ 300
+	pass 310 @ 200
+	end 350 @ 300
+	color magenta.
+stroke line
+	start 400 @ 200
+	pass 440 @ 300
+	pass 460 @ 200
+	end 500 @ 300
+	color yellow
+	width 5.
+
+stroke arc
+	start 100 @ 350
+	end 200 @ 450
+	angle 0
+	sweep 300
+	color black
+	width 3.
+fill arc
+	start 250 @ 350
+	end 350 @ 450
+	angle 0
+	sweep 300
+	color gray.
+
 display string
 	at 430 @ 390
 	"ASAOKA".
@@ -7,3 +57,5 @@ display string
 display image
 	at 550 @ 50
 	"http://www.cc.kyoto-su.ac.jp/~atsushi/misc/jpgs/BlackBookFrontPage335x432.jpg".
+	/* "http://aokilab.kyoto-su.ac.jp/documents/BlackBook/images/BlackBookFrontPage335x432.jpg". */
+
