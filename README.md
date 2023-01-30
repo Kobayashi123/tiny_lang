@@ -30,7 +30,7 @@ $ make src
 
 After that, download and run tiny_VM by the following command. tiny_VM window opens, select tmp.txt to process src.txt written in tiny_lang and draw in the window.
 ```
-$ make test
+$ make vm
 ```
 
 ## Licence
