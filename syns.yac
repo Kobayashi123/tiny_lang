@@ -1,3 +1,20 @@
+/*
+   Copyright 2023 Ochiai Daisuke, Kitaoka Tsubasa, Kobayashi Shun,
+   KoyamaShuhey, Goda Teruya
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
+
 %{
 #include "defs.h"
 #define YYSTYPE Cell *
@@ -24,13 +41,13 @@ Statement
         | STROKE RECTANGLE RectangleAttributes PERIOD
                 { $$ = node("STROKE", node("RECTANGLE",$3));}
         | FILL LINE LineAttributes PERIOD
-                { $$ = node("FILL",node("LINE",$3));} 
+                { $$ = node("FILL",node("LINE",$3));}
         | STROKE LINE LineAttributes PERIOD
-                { $$ = node("STROKE",node("LINE",$3));} 
+                { $$ = node("STROKE",node("LINE",$3));}
         | FILL ARC ArcAttributes PERIOD
-                { $$ = node("FILL",node("ARC",$3));} 
+                { $$ = node("FILL",node("ARC",$3));}
         | STROKE ARC ArcAttributes PERIOD
-                { $$ = node("STROKE",node("ARC",$3));} 
+                { $$ = node("STROKE",node("ARC",$3));}
 
 StringAttributes
         : AtPoint Wquoted
@@ -66,7 +83,7 @@ ArcAttributes
 WayPoint
         :PASS Point
                 { $$ = node("PASS",$2);}
-        |PASS Point WayPoint 
+        |PASS Point WayPoint
                 { $$ = cons(node("PASS",$2),$3);}
 Point
         :Integer ATMARK Integer
