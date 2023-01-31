@@ -1,6 +1,6 @@
 /*
    Copyright 2023 Ochiai Daisuke, Kitaoka Tsubasa, Kobayashi Shun,
-   KoyamaShuhey, Goda Teruya
+   Koyama Shuhey, Goda Teruya
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -23,30 +23,27 @@ int linecounter = 1;
 display                                     { return(DISPLAY); }
 string                                      { return(STRING); }
 image                                       { return(IMAGE); }
-line										{return(LINE); }
-rectangle									{ return(RECTANGLE);}
-arc											{ return(ARC);}
-angle										{ return(ANGLE);}
-sweep										{ return(SWEEP);}
-fill										{ return(FILL);}
-stroke										{ return(STROKE);}
-start										{ return(START);}
-pass										{ return(PASS);}
-end											{ return(END);}
-color										{ return(COLOR);}
-
-green										{ return(GREEN); }
-red								  			{ return(RED); }
-blue										{ return(BLUE); }
-cyan										{ return(CYAN); }
-magenta										{ return(MAGENTA); }
-yellow										{ return(YELLOW); }
-gray										{ return(GRAY); }
-black										{ return(BLACK); }
-white										{ return(WHITE); }
-
-width										{ return(WIDTH);}
-
+line                                        {return(LINE); }
+rectangle                                   { return(RECTANGLE);}
+arc                                         { return(ARC); }
+angle                                       { return(ANGLE); }
+sweep                                       { return(SWEEP); }
+fill                                        { return(FILL); }
+stroke                                      { return(STROKE); }
+start                                       { return(START); }
+pass                                        { return(PASS); }
+end                                         { return(END); }
+color                                       { return(COLOR); }
+green                                       { return(GREEN); }
+red                                         { return(RED); }
+blue                                        { return(BLUE); }
+cyan                                        { return(CYAN); }
+magenta                                     { return(MAGENTA); }
+yellow                                      { return(YELLOW); }
+gray                                        { return(GRAY); }
+black                                       { return(BLACK); }
+white                                       { return(WHITE); }
+width                                       { return(WIDTH);}
 at                                          { return(AT);}
 [0-9]+                                      { return(INTEGER); }
 "."                                         { return(PERIOD); }
